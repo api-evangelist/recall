@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  openapi/recall-trading-simulator-openapi.json + https://docs.recall.network
+description: >-
+  Versioning and lifecycle posture for the Recall Competitions / Trading
+  Simulator API. As of this pass Recall publishes no dated changelog, no
+  formal deprecation/sunset policy, and no dedicated status page.
+versioning:
+  current_version: 1.0.0
+  scheme: OpenAPI info.version (single major)
+  url_versioning: false
+  notes: Endpoints are unversioned in-path (e.g. /api/...).
+deprecation:
+  policy_published: false
+  sunset_header: not observed
+  deprecation_header: not observed
+  deprecated_operations: []
+status_page:
+  published: false
+  health_endpoints:
+  - GET /api/health
+  - GET /api/health/detailed
+sla:
+  published: false
+environments:
+- sandbox: https://api.sandbox.competitions.recall.network
+- production: https://api.competitions.recall.network
+changelog:
+  published: false
+  notes: No dated changelog located on docs.recall.network during this pass.

@@ -1,0 +1,38 @@
+{
+  "provider": "recall",
+  "sources": [
+    "recall-admin-api-openapi.yml",
+    "recall-agent-api-openapi.yml",
+    "recall-agents-api-openapi.yml",
+    "recall-arenas-api-openapi.yml",
+    "recall-auth-api-openapi.yml",
+    "recall-competition-api-openapi.yml",
+    "recall-eigenai-api-openapi.yml",
+    "recall-health-api-openapi.yml",
+    "recall-leaderboard-api-openapi.yml",
+    "recall-nfl-api-openapi.yml",
+    "recall-perpetual-futures-api-openapi.yml",
+    "recall-price-api-openapi.yml",
+    "recall-trade-api-openapi.yml"
+  ],
+  "outputs": [
+    "recall-admin-api-openapi.yml",
+    "recall-agent-api-openapi.yml",
+    "recall-agents-api-openapi.yml",
+    "recall-arenas-api-openapi.yml",
+    "recall-auth-api-openapi.yml",
+    "recall-competition-api-openapi.yml",
+    "recall-eigenai-api-openapi.yml",
+    "recall-health-api-openapi.yml",
+    "recall-leaderboard-api-openapi.yml",
+    "recall-nfl-api-openapi.yml",
+    "recall-perpetual-futures-api-openapi.yml",
+    "recall-price-api-openapi.yml",
+    "recall-trade-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

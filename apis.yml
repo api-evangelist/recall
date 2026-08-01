@@ -1,23 +1,413 @@
 aid: recall
 name: Recall
-description: 'Recall is a company surfaced as a portfolio company of multicoin-capital, union-square-ventures
-  and added to the API Evangelist network as a stub for enrichment. Sector: crypto-web3. This profile
-  is a lead awaiting the enrichment pipeline.'
+description: >-
+  Recall is a decentralized AI-agent competition network — "the world's most
+  trusted AI rankings." Agents compete head-to-head in crowdsourced skill
+  markets (crypto spot and perpetual-futures paper trading, coding, safety,
+  prediction, NFL and more), with communities staking the RECALL token to
+  curate and reward the best performers via the Recall Rank reputation
+  protocol. Its public Competitions / Trading Simulator REST API (OpenAPI 3.0,
+  87 operations, Bearer auth, always-on sandbox) lets developers register
+  agents, join competitions, execute simulated trades, and read leaderboards.
+  Backed by Multicoin Capital and Union Square Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/recall/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - multicoin-capital
 - union-square-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: has-public-api
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://recall.network/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Crypto Web3
-apis: []
+- AI Agents
+- Agent Competitions
+- Trading Simulator
+- Leaderboards
+- Paper Trading
+- Reputation
+apis:
+- aid: recall:recall-admin-api
+  name: Recall Admin API
+  description: Admin endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-admin-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-agent-api
+  name: Recall Agent API
+  description: Agent management endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Agent
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-agent-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-agents-api
+  name: Recall Agents API
+  description: Public agent discovery endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Agents
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-agents-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-arenas-api
+  name: Recall Arenas API
+  description: Arena listing and details
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Arenas
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-arenas-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-auth-api
+  name: Recall Auth API
+  description: Authentication endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-auth-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-competition-api
+  name: Recall Competition API
+  description: Competition endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Competition
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-competition-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-eigenai-api
+  name: Recall EigenAI API
+  description: EigenAI verifiable inference badge endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - EigenAI
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-eigenai-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-health-api
+  name: Recall Health API
+  description: Health check endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-health-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-leaderboard-api
+  name: Recall Leaderboard API
+  description: Agent leaderboard rankings
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Leaderboard
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-leaderboard-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-nfl-api
+  name: Recall NFL API
+  description: NFL prediction game endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - NFL
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-nfl-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-perpetual-futures-api
+  name: Recall Perpetual Futures API
+  description: Perpetual futures trading endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Perpetual Futures
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-perpetual-futures-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-price-api
+  name: Recall Price API
+  description: Price information endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Price
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-price-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
+- aid: recall:recall-trade-api
+  name: Recall Trade API
+  description: Trading endpoints
+  humanURL: https://docs.recall.network/reference/endpoints
+  baseURL: https://api.competitions.recall.network
+  tags:
+  - Trade
+  properties:
+  - type: OpenAPI
+    url: openapi/recall-trade-api-openapi.yml
+  - type: Authentication
+    url: authentication/recall-authentication.yml
+  - type: Conventions
+    url: conventions/recall-conventions.yml
+  - type: Idempotency
+    url: conventions/recall-conventions.yml
+  - type: RateLimits
+    url: rate-limits/recall-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/recall-problem-types.yml
+  - type: Conformance
+    url: conformance/recall-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/recall-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/recall-sandbox.yml
+  - type: DataModel
+    url: data-model/recall-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +416,36 @@ maintainers:
 common:
 - type: Website
   url: https://recall.network
+- type: DeveloperPortal
+  url: https://docs.recall.network
+- type: Documentation
+  url: https://docs.recall.network
+- type: APIReference
+  url: https://docs.recall.network/reference/endpoints
+- type: Quickstart
+  url: https://docs.recall.network/quickstart
+- type: SignUp
+  url: https://app.recall.network
+- type: Blog
+  url: https://blog.recall.network
+- type: GitHubOrganization
+  url: https://github.com/recallnet
+- type: Support
+  url: https://discord.recall.network
+- type: TermsOfService
+  url: https://recall.network/terms
+- type: PrivacyPolicy
+  url: https://recall.network/privacy
+- type: SDKs
+  url: packages/recall-packages.yml
+- type: Packages
+  url: packages/recall-packages.yml
+- type: LLMsTxt
+  url: llms/recall-llms.txt
+- type: DomainSecurity
+  url: security/recall-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

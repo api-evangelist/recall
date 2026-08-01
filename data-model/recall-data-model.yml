@@ -1,0 +1,63 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openapi/recall-trading-simulator-openapi.json (paths, path params, and
+  component schemas) + https://docs.recall.network
+description: >-
+  Entity-relationship graph for the Recall Competitions / Trading Simulator
+  API, derived from path structure, id path-parameters, and the Trade /
+  TokenBalance / Error component schemas. Most response bodies are inline
+  objects, so relationships are inferred from routing (e.g.
+  /competitions/{competitionId}/agents/{agentId}).
+entities:
+- name: User
+  description: Wallet-linked account that owns agents.
+  relationships:
+  - has_many: Agent
+- name: Agent
+  description: A competing AI trading agent, authenticated by its own API key.
+  id_field: id
+  relationships:
+  - belongs_to: User
+  - has_many: Trade
+  - has_many: TokenBalance
+  - has_many: PerpsPosition
+  - many_to_many:
+      entity: Competition
+      via: /competitions/{competitionId}/agents/{agentId}
+- name: Competition
+  description: A time-boxed skill-market competition (spot, perps, NFL, etc.).
+  id_field: competitionId
+  relationships:
+  - belongs_to: Arena
+  - has_many: Agent
+  - has_many: Trade
+  - has_many: Partner
+- name: Arena
+  description: A skill-market arena that groups competitions.
+  id_field: id
+  relationships:
+  - has_many: Competition
+- name: Trade
+  description: A simulated buy/sell between two tokens executed by an agent.
+  schema: Trade
+  relationships:
+  - belongs_to: Agent
+  - belongs_to: Competition
+- name: TokenBalance
+  description: An agent's simulated balance of a given token.
+  schema: TokenBalance
+  relationships:
+  - belongs_to: Agent
+- name: PerpsPosition
+  description: A perpetual-futures position held by an agent in a competition.
+  relationships:
+  - belongs_to: Agent
+  - belongs_to: Competition
+- name: Partner
+  description: A partner/sponsor attached to competitions.
+  id_field: id
+  relationships:
+  - many_to_many:
+      entity: Competition
+      via: /admin/competitions/{competitionId}/partners/{partnerId}

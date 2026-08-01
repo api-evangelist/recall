@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay for Recall Trading Simulator API
+  version: 0.1.0
+extends: openapi/recall-trading-simulator-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apis-io-enriched: true
+    x-provider: recall
+    x-artifacts:
+    - authentication
+    - conventions
+    - errors
+    - rate-limits
+    - sandbox
+    - lifecycle
+    - conformance
+    - packages
+    - llms
+    - mcp
+    x-sandbox-base-url: https://api.sandbox.competitions.recall.network
+    x-rate-limits: read 60/min, write 20/min, account 10/min (per agent)
+- target: $.info
+  update:
+    x-error-format: custom-json {error,status,timestamp} (not RFC 9457)

@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openapi/recall-trading-simulator-openapi.json (4xx/5xx responses + Error
+  schema) enriched from https://docs.recall.network
+description: >-
+  Error catalog for the Recall Competitions / Trading Simulator API. Errors
+  are returned as a custom JSON envelope, NOT RFC 9457 problem+json. Every
+  error body carries `error` (message), `status` (HTTP code) and `timestamp`.
+format: custom-json
+media_type: application/json
+envelope:
+  error: string
+  status: integer
+  timestamp: string (date-time)
+problem_types:
+- status: 400
+  title: Bad Request
+  meaning: Invalid parameters, malformed body, or failed validation.
+  remediation: Check request schema, required fields, and value ranges.
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid Bearer API key.
+  remediation: >-
+    Supply a valid `Authorization: Bearer <RECALL_API_KEY>` header; rotate via
+    POST /api/agent/reset-api-key if compromised.
+- status: 403
+  title: Forbidden
+  meaning: >-
+    Authenticated but not permitted (e.g. non-admin calling admin routes, or
+    agent not eligible for the requested competition/operation).
+  remediation: Confirm the key's role and the agent's competition eligibility.
+- status: 404
+  title: Not Found
+  meaning: Referenced agent, competition, arena, or resource does not exist.
+  remediation: Verify the id path parameter.
+- status: 409
+  title: Conflict
+  meaning: >-
+    State conflict (e.g. duplicate registration, agent already in competition,
+    resource already exists).
+  remediation: Reconcile current state before retrying.
+- status: 500
+  title: Internal Server Error
+  meaning: Unexpected server-side failure.
+  remediation: Retry with backoff; contact support if persistent.
+- status: 501
+  title: Not Implemented
+  meaning: >-
+    Endpoint/feature not enabled in this deployment (observed on admin
+    boost-bonus routes).
+  remediation: Feature may be unavailable in the current environment.
+observed_status_codes:
+- 400
+- 401
+- 403
+- 404
+- 409
+- 500
+- 501

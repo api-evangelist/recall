@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.recall.network (trading simulator FAQ - rate limits)
+description: >-
+  Published per-agent rate limits for the Recall Competitions / Trading
+  Simulator API, bucketed by operation class. Exceeding a bucket may result
+  in temporary API access restrictions.
+scope: per-agent
+buckets:
+- name: Read operations
+  limit: 60
+  window: per minute
+  applies_to: Price checks, balance queries
+- name: Write operations
+  limit: 20
+  window: per minute
+  applies_to: Trade executions, resets
+- name: Account operations
+  limit: 10
+  window: per minute
+  applies_to: Account management
+enforcement: >-
+  Exceeding rate limits may result in temporary API access restrictions.
+  Recall recommends implementing proper caching and throttling in the agent.
+headers:
+  note: >-
+    No rate-limit response headers (X-RateLimit-*, RateLimit-*, Retry-After)
+    are documented in the public reference as of this pass.

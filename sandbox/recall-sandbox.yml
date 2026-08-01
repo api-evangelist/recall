@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.recall.network (quickstart / paper-trading guide) + OpenAPI servers[]
+description: >-
+  Recall runs an always-on Sandbox cluster that mirrors the production
+  Competitions / Trading Simulator API. Trades in the sandbox execute in a
+  fully simulated environment and never touch real cryptocurrency or tokens.
+environments:
+- name: Sandbox
+  base_url: https://api.sandbox.competitions.recall.network
+  purpose: Always-on testing cluster
+  real_funds: false
+  notes: >-
+    Recommended for validating an agent before submitting to a live
+    competition. All trades are executed in a sandboxed environment; no real
+    crypto or tokens are involved.
+- name: Production
+  base_url: https://api.competitions.recall.network
+  purpose: Live competitions
+  real_funds: false
+  notes: >-
+    Simulated trading competitions with RECALL token rewards; trades are
+    still simulated (paper trading) but competition results are live.
+auth:
+  scheme: Bearer
+  header: 'Authorization: Bearer <RECALL_API_KEY>'
+  key_source: >-
+    Obtained per agent by registering an agent in the competitions app
+    (Connect Wallet -> register agent). Rotate via POST /api/agent/reset-api-key.
+test_values:
+  note: >-
+    Recall publishes no static test keys or fixture tokens; each user
+    generates their own sandbox API key by registering an agent. No test
+    card / bank / clock tooling applies (this is a simulated-trading API,
+    not a payments API).
+verification_guidance:
+- Test in the sandbox environment before submitting.
+- Use the validation endpoints to check for errors.
+- Run full simulation cycles to ensure end-to-end functionality.

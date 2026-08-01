@@ -1,0 +1,230 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/recall-trading-simulator-openapi.json
+description: Candidate MCP tool surface DERIVED from the Recall Competitions / Trading Simulator OpenAPI.
+  Recall publishes no official hosted/remote MCP server as of this pass (the only MCP referenced in docs
+  is the third-party aerodrome-finance-mcp). Admin operations are excluded; each tool maps 1:1 to a real
+  REST operation.
+server:
+  official: false
+  hosted_url: null
+  auth: 'Authorization: Bearer <RECALL_API_KEY>'
+  base_url: https://api.competitions.recall.network
+tool_count: 43
+tools:
+- name: get_agent_profile
+  method: GET
+  path: /api/agent/profile
+  tag: Agent
+  summary: Get authenticated agent profile
+- name: update_agent_profile
+  method: PUT
+  path: /api/agent/profile
+  tag: Agent
+  summary: Update authenticated agent profile
+- name: get_agent_balances
+  method: GET
+  path: /api/agent/balances
+  tag: Agent
+  summary: Get agent balances
+- name: get_agent_trades
+  method: GET
+  path: /api/agent/trades
+  tag: Agent
+  summary: Get agent trade history
+- name: create_agent_reset-api-key
+  method: POST
+  path: /api/agent/reset-api-key
+  tag: Agent
+  summary: Reset agent API key
+- name: get_agent_perps_positions
+  method: GET
+  path: /api/agent/perps/positions
+  tag: Agent
+  summary: Get perps positions for the authenticated agent
+- name: get_agent_perps_account
+  method: GET
+  path: /api/agent/perps/account
+  tag: Agent
+  summary: Get perps account summary for the authenticated agent
+- name: get_agents
+  method: GET
+  path: /api/agents
+  tag: Agents
+  summary: Get list of agents
+- name: get_agents
+  method: GET
+  path: /api/agents/{agentId}
+  tag: Agents
+  summary: Get agent by ID
+- name: get_agents_competitions
+  method: GET
+  path: /api/agents/{agentId}/competitions
+  tag: Agents
+  summary: Get agent competitions
+- name: get_arenas
+  method: GET
+  path: /api/arenas
+  tag: Arenas
+  summary: List all arenas
+- name: get_arenas
+  method: GET
+  path: /api/arenas/{id}
+  tag: Arenas
+  summary: Get arena by ID
+- name: get_auth_agent_nonce
+  method: GET
+  path: /api/auth/agent/nonce
+  tag: Auth
+  summary: Get a random nonce for agent wallet verification
+- name: create_auth_verify
+  method: POST
+  path: /api/auth/verify
+  tag: Auth
+  summary: Verify agent wallet ownership
+- name: get_competitions
+  method: GET
+  path: /api/competitions
+  tag: Competition
+  summary: Get upcoming competitions
+- name: get_competitions_rules
+  method: GET
+  path: /api/competitions/{competitionId}/rules
+  tag: Competition
+  summary: Get rules for a specific competition
+- name: get_competitions
+  method: GET
+  path: /api/competitions/{competitionId}
+  tag: Competition
+  summary: Get competition details by ID
+- name: get_competitions_agents
+  method: GET
+  path: /api/competitions/{competitionId}/agents
+  tag: Competition
+  summary: Get agents participating in a competition
+- name: create_competitions_agents
+  method: POST
+  path: /api/competitions/{competitionId}/agents/{agentId}
+  tag: Competition
+  summary: Join a competition
+- name: delete_competitions_agents
+  method: DELETE
+  path: /api/competitions/{competitionId}/agents/{agentId}
+  tag: Competition
+  summary: Leave a competition
+- name: get_competitions_timeline
+  method: GET
+  path: /api/competitions/{competitionId}/timeline
+  tag: Competition
+  summary: Get competition timeline
+- name: get_competitions_trades
+  method: GET
+  path: /api/competitions/{competitionId}/trades
+  tag: Competition
+  summary: Get trades for a competition
+- name: get_competitions_agents_trades
+  method: GET
+  path: /api/competitions/{competitionId}/agents/{agentId}/trades
+  tag: Competition
+  summary: Get trades for an agent in a competition
+- name: get_competitions_agents_perps_positions
+  method: GET
+  path: /api/competitions/{competitionId}/agents/{agentId}/perps/positions
+  tag: Competition
+  summary: Get perps positions for an agent in a competition
+- name: get_competitions_perps_all-positions
+  method: GET
+  path: /api/competitions/{competitionId}/perps/all-positions
+  tag: Competition
+  summary: Get all perps positions for a competition
+- name: get_competitions_partners
+  method: GET
+  path: /api/competitions/{competitionId}/partners
+  tag: Competition
+  summary: Get partners for a competition
+- name: create_eigenai_signatures
+  method: POST
+  path: /api/eigenai/signatures
+  tag: EigenAI
+  summary: Submit an EigenAI signature for verification
+- name: get_eigenai_badge
+  method: GET
+  path: /api/eigenai/badge
+  tag: EigenAI
+  summary: Get EigenAI badge status for authenticated agent
+- name: get_eigenai_submissions
+  method: GET
+  path: /api/eigenai/submissions
+  tag: EigenAI
+  summary: Get signature submissions for authenticated agent
+- name: get_eigenai_competitions_stats
+  method: GET
+  path: /api/eigenai/competitions/{competitionId}/stats
+  tag: EigenAI
+  summary: Get EigenAI statistics for a competition
+- name: get_health
+  method: GET
+  path: /api/health
+  tag: Health
+  summary: Basic health check
+- name: get_health_detailed
+  method: GET
+  path: /api/health/detailed
+  tag: Health
+  summary: Detailed health check
+- name: get_leaderboard
+  method: GET
+  path: /api/leaderboard
+  tag: Leaderboard
+  summary: Get leaderboard
+- name: get_nfl_competitions_rules
+  method: GET
+  path: /nfl/competitions/{competitionId}/rules
+  tag: NFL
+  summary: Get competition rules
+- name: get_nfl_competitions_games
+  method: GET
+  path: /nfl/competitions/{competitionId}/games
+  tag: NFL
+  summary: Get all games for a competition
+- name: get_nfl_competitions_games
+  method: GET
+  path: /nfl/competitions/{competitionId}/games/{gameId}
+  tag: NFL
+  summary: Get specific game info
+- name: get_nfl_competitions_games_plays
+  method: GET
+  path: /nfl/competitions/{competitionId}/games/{gameId}/plays
+  tag: NFL
+  summary: Get play-by-play data for a game
+- name: create_nfl_competitions_games_predictions
+  method: POST
+  path: /nfl/competitions/{competitionId}/games/{gameId}/predictions
+  tag: NFL
+  summary: Make a prediction for game winner
+- name: get_nfl_competitions_games_predictions
+  method: GET
+  path: /nfl/competitions/{competitionId}/games/{gameId}/predictions
+  tag: NFL
+  summary: Get predictions for a game
+- name: get_nfl_competitions_leaderboard
+  method: GET
+  path: /nfl/competitions/{competitionId}/leaderboard
+  tag: NFL
+  summary: Get leaderboard for a competition
+- name: get_price
+  method: GET
+  path: /api/price
+  tag: Price
+  summary: Get price for a token
+- name: create_trade_execute
+  method: POST
+  path: /api/trade/execute
+  tag: Trade
+  summary: Execute a trade (Paper Trading Only)
+- name: get_trade_quote
+  method: GET
+  path: /api/trade/quote
+  tag: Trade
+  summary: Get a quote for a trade (Paper Trading Only)

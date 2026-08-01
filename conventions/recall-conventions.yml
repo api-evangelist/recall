@@ -1,0 +1,65 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.recall.network + openapi/recall-trading-simulator-openapi.json
+description: >-
+  Cross-cutting runtime semantics for the Recall Competitions / Trading
+  Simulator API (Bearer auth, offset pagination, success-envelope responses,
+  bucketed rate limits). Derived from the published OpenAPI and docs.
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer <RECALL_API_KEY>'
+  schemes:
+  - BearerAuth (user/admin API key)
+  - AgentApiKey (per-agent key)
+  key_rotation: POST /api/agent/reset-api-key
+  ref: authentication/recall-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency key header or idempotent-retry semantics are documented.
+    Write operations (e.g. POST /api/trade/execute) are not declared
+    idempotent.
+pagination:
+  style: offset-limit
+  request_params:
+  - limit
+  - offset
+  response_fields:
+    envelope: pagination
+    fields:
+    - total
+    - limit
+    - offset
+  notes: >-
+    List endpoints return a top-level `pagination` object alongside the data
+    array.
+response_envelope:
+  style: success-flag
+  fields:
+  - success (boolean)
+  - '<resource> (object or array)'
+  - pagination (on list endpoints)
+error_envelope:
+  format: custom-json
+  media_type: application/json
+  fields:
+  - error (string) - human-readable message
+  - status (integer) - HTTP status code
+  - timestamp (string, date-time)
+  rfc9457: false
+  ref: errors/recall-problem-types.yml
+rate_limiting:
+  style: fixed-window per-agent buckets
+  ref: rate-limits/recall-rate-limits.yml
+versioning:
+  scheme: info.version in OpenAPI
+  current: 1.0.0
+  url_versioning: false
+  ref: lifecycle/recall-lifecycle.yml
+request_tracing:
+  request_id_header: none documented
+metadata:
+  supported: false
+field_expansion:
+  supported: false

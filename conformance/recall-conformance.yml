@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openapi/recall-trading-simulator-openapi.json + https://docs.recall.network
+description: >-
+  Conformance assertions for the Recall Competitions / Trading Simulator API
+  against cross-cutting API standards. Derived from the published OpenAPI and
+  docs; absence of a standard is honest, not a defect.
+standards:
+- id: oauth2
+  conforms: false
+  evidence: >-
+    Only HTTP Bearer security schemes (BearerAuth, AgentApiKey) are declared;
+    no OAuth2 flows.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery or id_token surface.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Errors use a custom {error,status,timestamp} JSON envelope, not
+    application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: >-
+    List endpoints expose offset/limit query params and a top-level
+    pagination object with total/limit/offset.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key header or idempotent-retry semantics documented.
+- id: openapi
+  conforms: true
+  evidence: >-
+    OpenAPI 3.0.0 spec published and served via Swagger UI at
+    /api/docs (87 operations, 14 tags).
+- id: json:api
+  conforms: false
+  evidence: Responses are a custom success-envelope shape, not JSON:API.
+- id: fapi
+  conforms: false
+  evidence: Not a financial-grade OAuth API; simulated-trading REST API.
+- id: scim
+  conforms: false
+  evidence: No SCIM user-provisioning surface.

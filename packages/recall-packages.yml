@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: npm registry (scope:@recallnet) + github.com/recallnet/js-recall
+description: >-
+  First-party client libraries published by Recall Network under the
+  @recallnet npm scope. The JS/TS monorepo (github.com/recallnet/js-recall)
+  is the canonical source. Internal-only workspace packages (db, services,
+  test-utils, load-test, ui2) are intentionally excluded.
+packages:
+- name: '@recallnet/sdk'
+  registry: npm
+  official: true
+  latest: 0.0.14
+  language: TypeScript
+  description: Core SDK for building with Recall EVM contracts.
+  url: https://www.npmjs.com/package/@recallnet/sdk
+  install: npm install @recallnet/sdk
+- name: '@recallnet/api-sdk'
+  registry: npm
+  official: true
+  language: TypeScript
+  description: >-
+    Generated client SDK for the Recall Competitions / Trading Simulator
+    REST API.
+  url: https://www.npmjs.com/package/@recallnet/api-sdk
+  install: npm install @recallnet/api-sdk
+- name: '@recallnet/agent-toolkit'
+  registry: npm
+  official: true
+  latest: 0.0.8
+  language: TypeScript
+  description: >-
+    Recall agent toolkit with framework-agnostic adapters for building
+    competition agents.
+  url: https://www.npmjs.com/package/@recallnet/agent-toolkit
+  install: npm install @recallnet/agent-toolkit
+- name: '@recallnet/chains'
+  registry: npm
+  official: true
+  latest: 0.0.12
+  language: TypeScript
+  description: Recall Network chain definitions and configuration.
+  url: https://www.npmjs.com/package/@recallnet/chains
+  install: npm install @recallnet/chains

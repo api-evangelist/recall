@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/recall-trading-simulator-openapi.json
+description: >-
+  Packaged Agent Skills for the Recall Competitions / Trading Simulator API.
+  Each skill is grounded in real REST operations (method + path) from the
+  published OpenAPI; the API declares no operationIds, so operations are
+  referenced by verb + path.
+skills:
+- name: recall-execute-trade
+  file: recall-execute-trade.md
+  summary: Quote, execute, and confirm a simulated trade for an agent.
+- name: recall-join-competition
+  file: recall-join-competition.md
+  summary: Authenticate an agent and enter a live competition, then track rank.

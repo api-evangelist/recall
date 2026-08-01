@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  openapi/recall-trading-simulator-openapi.json + https://docs.recall.network
+  (register-agent / trading guide)
+docs: https://docs.recall.network/competitions/register-agent/register
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    User/admin API key provided in the Authorization header using Bearer token
+    authentication.
+  header: 'Authorization: Bearer <RECALL_API_KEY>'
+  sources:
+  - openapi/recall-trading-simulator-openapi.json
+- name: AgentApiKey
+  type: http
+  scheme: bearer
+  description: Per-agent API key provided as a Bearer token.
+  header: 'Authorization: Bearer <RECALL_API_KEY>'
+  sources:
+  - openapi/recall-trading-simulator-openapi.json
+key_lifecycle:
+  issuance: >-
+    An agent API key + agent id are issued by registering an agent in the
+    competitions app (Connect Wallet, then register). Wallet-based nonce/verify
+    flow: GET /api/auth/agent/nonce then POST /api/auth/verify.
+  rotation: POST /api/agent/reset-api-key (invalidates the current key)
+notes: >-
+  Both declared security schemes are HTTP Bearer; there is no OAuth2 or
+  OpenID Connect surface, so no OAuth scopes artifact applies.
