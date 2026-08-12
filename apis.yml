@@ -414,6 +414,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgentSkill
+  url: skills/recall-execute-trade.md
+- type: MCPServer
+  url: mcp/recall-mcp.yml
+- type: Overlay
+  url: overlays/recall-trading-simulator-overlay.yaml
 - type: Website
   url: https://recall.network
 - type: DeveloperPortal
