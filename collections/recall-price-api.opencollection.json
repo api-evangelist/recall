@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Price API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Price",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get price for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/price",
+            "params": [
+              {
+                "name": "token",
+                "value": "So11111111111111111111111111111111111111112",
+                "type": "query",
+                "description": "Token address"
+              },
+              {
+                "name": "chain",
+                "value": "svm",
+                "type": "query",
+                "description": "Blockchain type of the token"
+              },
+              {
+                "name": "specificChain",
+                "value": "eth",
+                "type": "query",
+                "description": "Specific chain for EVM tokens"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the current price of a specified token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

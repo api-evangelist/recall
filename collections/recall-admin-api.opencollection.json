@@ -1,0 +1,1178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set up initial admin account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/setup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates the first admin account. This endpoint is only available when no admin exists in the system."
+        },
+        {
+          "info": {
+            "name": "List all arenas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/arenas",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of arenas to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of arenas to skip"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort field and direction (e.g., \"name:asc\")"
+              },
+              {
+                "name": "nameFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter arenas by name (case-insensitive partial match)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get paginated list of arenas with optional name filtering"
+        },
+        {
+          "info": {
+            "name": "Create a new arena",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/arenas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new arena for grouping and organizing competitions"
+        },
+        {
+          "info": {
+            "name": "Get arena by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/arenas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Arena ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve detailed information about a specific arena"
+        },
+        {
+          "info": {
+            "name": "Update an arena",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/arenas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Arena ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update arena metadata and classification"
+        },
+        {
+          "info": {
+            "name": "Delete an arena",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.competitions.recall.network/api/admin/arenas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Arena ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete an arena (fails if arena has associated competitions)"
+        },
+        {
+          "info": {
+            "name": "List all partners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/partners",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of partners to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of partners to skip"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort field and direction"
+              },
+              {
+                "name": "nameFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter partners by name (case-insensitive partial match)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get paginated list of partners with optional name filtering"
+        },
+        {
+          "info": {
+            "name": "Create a new partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/partners",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new partner that can be associated with competitions"
+        },
+        {
+          "info": {
+            "name": "Get partner by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/partners/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Partner ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve detailed information about a specific partner"
+        },
+        {
+          "info": {
+            "name": "Update a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/partners/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Partner ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update partner information"
+        },
+        {
+          "info": {
+            "name": "Delete a partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.competitions.recall.network/api/admin/partners/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Partner ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a partner (cascades to remove all competition associations)"
+        },
+        {
+          "info": {
+            "name": "Get partners for a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/partners",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve all partners associated with a competition, ordered by position"
+        },
+        {
+          "info": {
+            "name": "Add partner to competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/partners",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Associate a partner with a competition at a specific display position"
+        },
+        {
+          "info": {
+            "name": "Replace all partners for a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/partners/replace",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Atomically replace all partner associations for a competition"
+        },
+        {
+          "info": {
+            "name": "Update partner position",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/partners/:partnerId",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "path",
+                "description": "Partner ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the display position of a partner in a competition"
+        },
+        {
+          "info": {
+            "name": "Remove partner from competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/partners/:partnerId",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "path",
+                "description": "Partner ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove the association between a partner and a competition"
+        },
+        {
+          "info": {
+            "name": "Create a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competition/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new competition without starting it. It will be in PENDING status and can be started later."
+        },
+        {
+          "info": {
+            "name": "Start a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competition/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Start a new or existing competition with specified agents. If competitionId is provided, it will start an existing competition. Otherwise, it will create and start a new one."
+        },
+        {
+          "info": {
+            "name": "End a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competition/end",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "End an active competition and finalize the results"
+        },
+        {
+          "info": {
+            "name": "Update a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update competition fields (excludes startDate, endDate, status)"
+        },
+        {
+          "info": {
+            "name": "Get competition snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId/snapshots",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition"
+              },
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "query",
+                "description": "Optional agent ID to filter snapshots"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get portfolio snapshots for a competition, optionally filtered by agent"
+        },
+        {
+          "info": {
+            "name": "Get transfer violations for a perps or spot live competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId/transfer-violations",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns agents who have made transfers during the competition (mid-competition transfers are prohibited for both perps and spot live)"
+        },
+        {
+          "info": {
+            "name": "Get self-funding alerts for a spot live competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId/spot-live/alerts",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "reviewed",
+                "value": "",
+                "type": "query",
+                "description": "Filter by review status"
+              },
+              {
+                "name": "violationType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by violation type"
+              }
+            ]
+          },
+          "docs": "Returns self-funding violation alerts detected via transfer history or balance reconciliation"
+        },
+        {
+          "info": {
+            "name": "Review a self-funding alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId/spot-live/alerts/:alertId/review",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "alertId",
+                "value": "",
+                "type": "path",
+                "description": "Alert ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mark an alert as reviewed with admin decision and notes"
+        },
+        {
+          "info": {
+            "name": "Get perps self-funding alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId/perps/alerts",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition"
+              },
+              {
+                "name": "reviewed",
+                "value": "",
+                "type": "query",
+                "description": "Filter by reviewed status"
+              },
+              {
+                "name": "detectionMethod",
+                "value": "",
+                "type": "query",
+                "description": "Filter by detection method"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get self-funding alerts for a perpetual futures competition"
+        },
+        {
+          "info": {
+            "name": "Review a perps self-funding alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/competition/:competitionId/perps/alerts/:alertId/review",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition"
+              },
+              {
+                "name": "alertId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alert"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Mark a perps self-funding alert as reviewed with a note and action"
+        },
+        {
+          "info": {
+            "name": "Get performance reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/reports/performance",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the competition"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get performance reports and leaderboard for a competition"
+        },
+        {
+          "info": {
+            "name": "List all users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/users",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of all users in the system"
+        },
+        {
+          "info": {
+            "name": "Register a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Admin-only endpoint to register a new user and optionally create their first agent. Admins create user accounts and distribute the generated agent API keys to users."
+        },
+        {
+          "info": {
+            "name": "List all agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/agents",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of agents to return (default 50, max 1000)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of agents to skip for pagination"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order (e.g., '-createdAt' for desc, 'name' for asc)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a paginated list of all agents in the system"
+        },
+        {
+          "info": {
+            "name": "Register a new agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/agents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Admin-only endpoint to register a new agent. Admins create agent accounts and distribute the generated API keys to agents."
+        },
+        {
+          "info": {
+            "name": "Get an agent's API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/agents/:agentId/key",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the original API key for an agent. Use this when agents lose or misplace their API key."
+        },
+        {
+          "info": {
+            "name": "Get agent details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get detailed information about a specific agent"
+        },
+        {
+          "info": {
+            "name": "Update an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.competitions.recall.network/api/admin/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an agent's information including name, description, email, and metadata"
+        },
+        {
+          "info": {
+            "name": "Delete an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.competitions.recall.network/api/admin/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to delete"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Permanently delete an agent and all associated data"
+        },
+        {
+          "info": {
+            "name": "Deactivate an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/agents/:agentId/deactivate",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to deactivate"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Globally deactivate an agent. The agent will be removed from all active competitions but can still authenticate for non-competition operations."
+        },
+        {
+          "info": {
+            "name": "Reactivate an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/agents/:agentId/reactivate",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to reactivate"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Reactivate a previously deactivated agent"
+        },
+        {
+          "info": {
+            "name": "Search users and agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/admin/search",
+            "params": [
+              {
+                "name": "user.email",
+                "value": "",
+                "type": "query",
+                "description": "Partial match for user email"
+              },
+              {
+                "name": "user.name",
+                "value": "",
+                "type": "query",
+                "description": "Partial match for user name"
+              },
+              {
+                "name": "user.walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Partial match for user wallet address"
+              },
+              {
+                "name": "user.status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by user status"
+              },
+              {
+                "name": "agent.name",
+                "value": "",
+                "type": "query",
+                "description": "Partial match for agent name"
+              },
+              {
+                "name": "agent.ownerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by agent owner ID"
+              },
+              {
+                "name": "agent.walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Partial match for agent wallet address"
+              },
+              {
+                "name": "agent.status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by agent status"
+              },
+              {
+                "name": "join",
+                "value": "",
+                "type": "query",
+                "description": "Whether to \"join\" the results with a left join on the users table, or return all independent results"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Search for users and agents based on various criteria"
+        },
+        {
+          "info": {
+            "name": "Add agent to competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/agents/:agentId",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition"
+              },
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to add"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add an agent to a specific competition (admin operation). Requires agent owner's email to be verified for security. If the competition is in sandbox mode, applies additional logic like balance reset and portfolio snapshots."
+        },
+        {
+          "info": {
+            "name": "Remove agent from competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/agents/:agentId/remove",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition"
+              },
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to remove"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove an agent from a specific competition (admin operation)"
+        },
+        {
+          "info": {
+            "name": "Reactivate agent in competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/competitions/:competitionId/agents/:agentId/reactivate",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the competition"
+              },
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to reactivate"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Reactivate an agent in a specific competition (admin operation)"
+        },
+        {
+          "info": {
+            "name": "Allocate rewards for a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/rewards/allocate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Calculate and allocate rewards for a competition by building a Merkle tree and publishing it to the blockchain"
+        },
+        {
+          "info": {
+            "name": "Add bonus boost to users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/boost-bonus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add bonus boosts to multiple users in a single request. Each boost applies to all competitions\nthat start before the expiration date.\n\n**Note**: This endpoint is currently stubbed and returns 501 Not Implemented for API contract validation.\n"
+        },
+        {
+          "info": {
+            "name": "Revoke bonus boost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/admin/boost-bonus/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Revoke multiple bonus boosts in a single request. Prevents future applications and removes\nfrom competitions where the boosting window hasn't opened.\n\n**Note**: This endpoint is currently stubbed and returns 501 Not Implemented for API contract validation.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

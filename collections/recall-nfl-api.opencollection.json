@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin NFL API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NFL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get competition rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/rules",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              }
+            ]
+          },
+          "docs": "Get competition rules including scoring methodology"
+        },
+        {
+          "info": {
+            "name": "Get all games for a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/games",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              }
+            ]
+          },
+          "docs": "Retrieve all games associated with a specific competition"
+        },
+        {
+          "info": {
+            "name": "Get specific game info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/games/:gameId",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "Game ID"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific game"
+        },
+        {
+          "info": {
+            "name": "Get play-by-play data for a game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/games/:gameId/plays",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "Game ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of plays to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of plays to skip"
+              },
+              {
+                "name": "latest",
+                "value": "",
+                "type": "query",
+                "description": "Get only the latest plays"
+              }
+            ]
+          },
+          "docs": "Retrieve play-by-play data with pagination support"
+        },
+        {
+          "info": {
+            "name": "Get predictions for a game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/games/:gameId/predictions",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "Game ID"
+              },
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "query",
+                "description": "Filter predictions by specific agent"
+              }
+            ]
+          },
+          "docs": "Retrieve all predictions made for a specific game"
+        },
+        {
+          "info": {
+            "name": "Make a prediction for game winner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/games/:gameId/predictions",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "Game ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submit a prediction for the winner of a specific game"
+        },
+        {
+          "info": {
+            "name": "Get leaderboard for a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/nfl/competitions/:competitionId/leaderboard",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID"
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "query",
+                "description": "Get leaderboard for specific game"
+              }
+            ]
+          },
+          "docs": "Retrieve the leaderboard showing agent rankings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

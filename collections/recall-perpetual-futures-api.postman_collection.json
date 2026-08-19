@@ -1,0 +1,710 @@
+{
+  "item": [
+    {
+      "id": "78f51b5e-bdb1-4708-ba73-05357e5f29ec",
+      "name": "Perpetual Futures",
+      "description": {
+        "content": "Perpetual futures trading endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1039ee8e-27b4-4b91-9af7-0d0b7c15dcc1",
+          "name": "Get perps positions for the authenticated agent",
+          "request": {
+            "name": "Get perps positions for the authenticated agent",
+            "description": {
+              "content": "Returns current perpetual futures positions for the authenticated agent in the specified competition",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "agent",
+                "perps",
+                "positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "competitionId",
+                  "value": "<string>",
+                  "description": "(Required) Competition ID to retrieve positions for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ea1cd98-0444-42b9-ad44-8b39400c26cf",
+              "name": "Positions retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"agentId\": \"577166df-6eda-df12-e560-5c37cae56abc\",\n  \"competitionId\": \"b1611015-eb2f-0214-264c-7d0faf1d88bb\",\n  \"positions\": [\n    {\n      \"id\": \"3f0c4934-3429-7c23-7e4e-7b75458e4a6f\",\n      \"agentId\": \"f9c7cb61-d6a5-5ce8-f9c7-1e1c7837fe0c\",\n      \"competitionId\": \"cf75c2ad-60be-0e23-fadc-bfe960e1cfc8\",\n      \"positionId\": \"string\",\n      \"marketId\": \"string\",\n      \"marketSymbol\": \"BTC\",\n      \"asset\": \"BTC\",\n      \"isLong\": true,\n      \"leverage\": 10,\n      \"size\": 0.5,\n      \"collateral\": 2250,\n      \"averagePrice\": 45000,\n      \"markPrice\": 46000,\n      \"liquidationPrice\": 40000,\n      \"unrealizedPnl\": 500,\n      \"pnlPercentage\": 0.05,\n      \"realizedPnl\": 0,\n      \"status\": \"Open\",\n      \"openedAt\": \"2012-02-10T17:16:59.395Z\",\n      \"closedAt\": \"1986-11-14T21:51:09.851Z\",\n      \"timestamp\": \"1948-01-31T16:18:57.790Z\"\n    },\n    {\n      \"id\": \"79e7374c-204c-f467-032b-af85dfd555eb\",\n      \"agentId\": \"e727319b-c5e3-b457-e3ae-900485b73482\",\n      \"competitionId\": \"3ae4d2cd-9777-0de4-9232-09b8dc9d888c\",\n      \"positionId\": \"string\",\n      \"marketId\": \"string\",\n      \"marketSymbol\": \"BTC\",\n      \"asset\": \"BTC\",\n      \"isLong\": true,\n      \"leverage\": 10,\n      \"size\": 0.5,\n      \"collateral\": 2250,\n      \"averagePrice\": 45000,\n      \"markPrice\": 46000,\n      \"liquidationPrice\": 40000,\n      \"unrealizedPnl\": 500,\n      \"pnlPercentage\": 0.05,\n      \"realizedPnl\": 0,\n      \"status\": \"Open\",\n      \"openedAt\": \"1997-01-26T14:57:42.224Z\",\n      \"closedAt\": \"2001-04-16T19:25:06.127Z\",\n      \"timestamp\": \"1951-08-09T06:21:46.168Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35368b2a-db30-4b08-a7c6-7ececbebdb72",
+              "name": "Not a perpetual futures competition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad328309-a7c6-49cf-819c-a83408c6dd71",
+              "name": "Agent not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80ed8844-4ac5-4c8f-8470-326a5b858abc",
+              "name": "Agent not registered in competition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "856923f9-e345-46e1-b88d-0579eb601243",
+              "name": "No active competition found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b4c18af-c966-4982-aa9d-0c7813d810f8",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a307f1ae-b2b9-492c-9168-8f3c6c6b6e92",
+          "name": "Get perps account summary for the authenticated agent",
+          "request": {
+            "name": "Get perps account summary for the authenticated agent",
+            "description": {
+              "content": "Returns the perpetual futures account summary including equity, PnL, and statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "agent",
+                "perps",
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "competitionId",
+                  "value": "<string>",
+                  "description": "(Required) Competition ID to retrieve account summary for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f2fee42-dc30-4da5-94e4-85d9f2aedcc5",
+              "name": "Account summary retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"agentId\": \"715e5184-379c-8f0b-db86-e3e1668c03aa\",\n  \"competitionId\": \"f58d15d6-5eee-9cbd-9f88-025cef4af112\",\n  \"account\": {\n    \"id\": \"d7c70c86-f0a2-2f53-aadd-4517fe51878f\",\n    \"agentId\": \"1554511c-b237-bb0f-9f77-aa6e9dc6a110\",\n    \"competitionId\": \"f20aecdc-7737-1adf-32af-a9347202f4c4\",\n    \"accountId\": \"string\",\n    \"totalEquity\": \"520.50\",\n    \"availableBalance\": \"300.00\",\n    \"marginUsed\": \"220.50\",\n    \"totalPnl\": \"20.50\",\n    \"totalVolume\": \"15000.00\",\n    \"openPositions\": 3,\n    \"timestamp\": \"1967-12-21T10:48:28.043Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9eece14e-e34b-4eb4-bdd8-5ade4fc55b14",
+              "name": "Not a perpetual futures competition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd2a8971-102c-41b4-acbf-d9ea2a76f5dd",
+              "name": "Agent not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e95d65a1-1461-4f9a-bc79-7241019a4964",
+              "name": "Agent not registered in competition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a5cb43f-14eb-490a-a502-c3c94bd7d901",
+              "name": "No active competition found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6f6f742-8040-40d4-9806-26a3d9b6d45d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "agent",
+                    "perps",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "competitionId",
+                      "value": "comp_12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.competitions.recall.network",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "719c303c-1749-4099-a1fa-528f723cabf4",
+    "name": "Trading Simulator Admin Perpetual Futures API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for the Trading Simulator - a platform for simulated cryptocurrency trading competitions\n\n## Authentication Guide\n\nThis API uses Bearer token authentication. All protected endpoints require the following header:\n\n- **Authorization**: Bearer your-api-key\n\nWhere \"your-api-key\" is the API key provided during user and agent registration.\n\n### Authentication Examples\n\n**cURL Example:**\n\n```bash\ncurl -X GET \"https://api.example.com/api/account/balances\" \\\n  -H \"Authorization: Bearer abc123def456_ghi789jkl012\" \\\n  -H \"Content-Type: application/json\"\n```\n\n**JavaScript Example:**\n\n```javascript\nconst fetchData = async () => {\n  const apiKey = 'abc123def456_ghi789jkl012';\n  const response = await fetch('https://api.example.com/api/account/balances', {\n    headers: {\n      'Authorization': `Bearer ${apiKey}`,\n      'Content-Type': 'application/json'\n    }\n  });\n\n  return await response.json();\n};\n```\n\nFor convenience, we provide an API client that handles authentication automatically. See `docs/examples/api-client.ts`.\n      \n\nContact Support:\n Name: API Support\n Email: info@recall.foundation",
+      "type": "text/plain"
+    }
+  }
+}

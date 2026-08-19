@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Arenas API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Arenas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all arenas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/arenas",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of arenas to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of arenas to skip"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort field and direction"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional name filter"
+              }
+            ]
+          },
+          "docs": "Get paginated list of all arenas with optional name filtering"
+        },
+        {
+          "info": {
+            "name": "Get arena by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/arenas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Arena ID"
+              }
+            ]
+          },
+          "docs": "Get detailed information about a specific arena"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

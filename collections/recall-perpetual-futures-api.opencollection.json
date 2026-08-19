@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Perpetual Futures API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Perpetual Futures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get perps positions for the authenticated agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/agent/perps/positions",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "comp_12345",
+                "type": "query",
+                "description": "Competition ID to retrieve positions for"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns current perpetual futures positions for the authenticated agent in the specified competition"
+        },
+        {
+          "info": {
+            "name": "Get perps account summary for the authenticated agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/agent/perps/account",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "comp_12345",
+                "type": "query",
+                "description": "Competition ID to retrieve account summary for"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the perpetual futures account summary including equity, PnL, and statistics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

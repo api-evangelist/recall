@@ -1,0 +1,1377 @@
+{
+  "item": [
+    {
+      "id": "c1dd3dbe-6273-4bb0-bb45-7ebf28b9133a",
+      "name": "NFL",
+      "description": {
+        "content": "NFL prediction game endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea87c86e-22e5-4227-8269-86c0bbf7a2ca",
+          "name": "Get competition rules",
+          "request": {
+            "name": "Get competition rules",
+            "description": {
+              "content": "Get competition rules including scoring methodology",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "304a9ee1-cf56-4664-a88b-5fa77d25f632",
+              "name": "Competition rules retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"predictionType\": \"game_winner\",\n    \"scoringMethod\": \"time_weighted_brier\",\n    \"scoringFormula\": {\n      \"description\": \"string\",\n      \"timeNormalization\": \"string\",\n      \"weight\": \"string\",\n      \"probability\": \"string\",\n      \"actual\": \"string\"\n    },\n    \"confidenceRange\": {\n      \"min\": 0,\n      \"max\": 1,\n      \"description\": \"string\"\n    },\n    \"predictionRules\": {\n      \"canUpdate\": true,\n      \"updateWindow\": \"string\",\n      \"scoringWindow\": \"string\",\n      \"preGamePredictions\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ca761f0-3434-4bba-8ec5-7a67b36f9ce5",
+              "name": "Competition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "365e794d-1c7e-44d4-9127-a452e25435b2",
+          "name": "Get all games for a competition",
+          "request": {
+            "name": "Get all games for a competition",
+            "description": {
+              "content": "Retrieve all games associated with a specific competition",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "games"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "462d01b7-77ec-45fb-a03d-e40d156dbcc1",
+              "name": "Games retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"games\": [\n      {\n        \"id\": \"cc12c5fa-adf8-3302-9495-c815eb0e41e7\",\n        \"providerGameId\": 19068,\n        \"season\": 2025,\n        \"week\": 1,\n        \"spread\": 1.5,\n        \"endTime\": \"1951-03-26T10:09:29.595Z\",\n        \"homeTeam\": \"CHI\",\n        \"awayTeam\": \"MIN\",\n        \"overUnder\": 43.5,\n        \"homeTeamMoneyLine\": 2943,\n        \"awayTeamMoneyLine\": 4442,\n        \"startTime\": \"1989-02-27T02:44:50.565Z\",\n        \"venue\": \"Soldier Field\",\n        \"status\": \"final\",\n        \"winner\": \"MIN\"\n      },\n      {\n        \"id\": \"af7b59e0-98c3-7f60-7883-0123667a96c5\",\n        \"providerGameId\": 19068,\n        \"season\": 2025,\n        \"week\": 1,\n        \"spread\": 1.5,\n        \"endTime\": \"1991-05-30T09:22:04.172Z\",\n        \"homeTeam\": \"CHI\",\n        \"awayTeam\": \"MIN\",\n        \"overUnder\": 43.5,\n        \"homeTeamMoneyLine\": 1061,\n        \"awayTeamMoneyLine\": 219,\n        \"startTime\": \"1986-09-02T07:15:49.667Z\",\n        \"venue\": \"Soldier Field\",\n        \"status\": \"final\",\n        \"winner\": \"MIN\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0da9cb6b-8c42-4a52-ba64-8a25b801da43",
+              "name": "Competition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cacdd66-99fd-457a-9b44-68b2694ea12b",
+          "name": "Get specific game info",
+          "request": {
+            "name": "Get specific game info",
+            "description": {
+              "content": "Retrieve detailed information about a specific game",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "games",
+                ":gameId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameId",
+                  "description": "(Required) Game ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ee088b4-5f16-4cd0-9a32-f7cc0bbed32c",
+              "name": "Game info retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"game\": {\n      \"id\": \"d1a98dc2-0c25-140a-f134-973b9b4570d6\",\n      \"providerGameId\": 5220,\n      \"season\": 883,\n      \"week\": 1906,\n      \"startTime\": \"1963-04-09T10:39:04.452Z\",\n      \"endTime\": \"1957-10-21T22:13:49.540Z\",\n      \"homeTeam\": \"string\",\n      \"awayTeam\": \"string\",\n      \"spread\": 953.9017150996387,\n      \"overUnder\": 790.9838179541529,\n      \"homeTeamMoneyLine\": 6309,\n      \"awayTeamMoneyLine\": 9890,\n      \"venue\": \"string\",\n      \"status\": \"in_progress\",\n      \"winner\": \"string\"\n    },\n    \"latestPrediction\": {\n      \"predictedWinner\": \"string\",\n      \"confidence\": 5430.21470131166,\n      \"createdAt\": \"1971-04-04T07:38:23.756Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec02c009-749a-4389-a9e7-f47d33977bcb",
+              "name": "Game not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c280bae0-38d6-4afb-afc7-6e0938b5b961",
+          "name": "Get play-by-play data for a game",
+          "request": {
+            "name": "Get play-by-play data for a game",
+            "description": {
+              "content": "Retrieve play-by-play data with pagination support",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "games",
+                ":gameId",
+                "plays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of plays to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Number of plays to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "latest",
+                  "value": "<boolean>",
+                  "description": "Get only the latest plays"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameId",
+                  "description": "(Required) Game ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7eb985ba-8aaa-4f54-936e-bf81792c30c2",
+              "name": "Play-by-play data retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "plays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "latest",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"metadata\": {\n      \"homeScore\": 58,\n      \"awayScore\": 1149,\n      \"quarterName\": \"string\",\n      \"timeRemainingMinutes\": 1492,\n      \"timeRemainingSeconds\": 4414,\n      \"down\": 6567,\n      \"distance\": 8094,\n      \"yardLine\": 270,\n      \"yardLineTerritory\": \"string\"\n    },\n    \"plays\": [\n      {\n        \"id\": \"2a25ae9f-6fa6-4dcc-9e43-bbaf581b53e9\",\n        \"sequence\": 3850,\n        \"quarterName\": \"string\",\n        \"timeRemainingMinutes\": 8681,\n        \"timeRemainingSeconds\": 4622,\n        \"down\": 415,\n        \"distance\": 5497,\n        \"yardLine\": 4451,\n        \"yardLineTerritory\": \"string\",\n        \"yardsToEndZone\": 9796,\n        \"team\": \"string\",\n        \"opponent\": \"string\",\n        \"description\": \"string\",\n        \"playType\": \"string\",\n        \"homeScore\": 7473,\n        \"awayScore\": 4665\n      },\n      {\n        \"id\": \"3d022ded-7276-8ea5-07bc-fcdf541af023\",\n        \"sequence\": 6307,\n        \"quarterName\": \"string\",\n        \"timeRemainingMinutes\": 8540,\n        \"timeRemainingSeconds\": 4883,\n        \"down\": 9958,\n        \"distance\": 2076,\n        \"yardLine\": 9285,\n        \"yardLineTerritory\": \"string\",\n        \"yardsToEndZone\": 1818,\n        \"team\": \"string\",\n        \"opponent\": \"string\",\n        \"description\": \"string\",\n        \"playType\": \"string\",\n        \"homeScore\": 6551,\n        \"awayScore\": 7349\n      }\n    ],\n    \"play\": {},\n    \"pagination\": {\n      \"total\": 4394,\n      \"limit\": 1874,\n      \"offset\": 5521,\n      \"hasMore\": true\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aec3f5d9-6113-4d1d-851a-b48dbf5562cf",
+              "name": "Game not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "plays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "latest",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56fec713-7c08-46c7-91ee-23abb95ee682",
+          "name": "Make a prediction for game winner",
+          "request": {
+            "name": "Make a prediction for game winner",
+            "description": {
+              "content": "Submit a prediction for the winner of a specific game",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "games",
+                ":gameId",
+                "predictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameId",
+                  "description": "(Required) Game ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"predictedWinner\": \"<string>\",\n  \"confidence\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5ae60f7-ebaa-4989-9220-ae806549d968",
+              "name": "Prediction created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"predictedWinner\": \"<string>\",\n  \"confidence\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Prediction created successfully\",\n  \"data\": {\n    \"id\": \"698dcff6-5d45-4f83-478b-f50862b3b504\",\n    \"predictedWinner\": \"MIN\",\n    \"confidence\": 0.85,\n    \"reason\": \"Strong offensive performance\",\n    \"createdAt\": \"1999-06-27T12:31:35.151Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eaf1cfb2-cc1c-469f-97da-4ecfb81c9771",
+              "name": "Invalid request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"predictedWinner\": \"<string>\",\n  \"confidence\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfe6a6c4-96d5-4bea-8649-acf5a3ce3751",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"predictedWinner\": \"<string>\",\n  \"confidence\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "736b09ad-9a49-4af3-8186-3c1499694c1d",
+              "name": "Game not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"predictedWinner\": \"<string>\",\n  \"confidence\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d3f3c19-5d55-48ec-9ef8-8b5233d54332",
+          "name": "Get predictions for a game",
+          "request": {
+            "name": "Get predictions for a game",
+            "description": {
+              "content": "Retrieve all predictions made for a specific game",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "games",
+                ":gameId",
+                "predictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agentId",
+                  "value": "<string>",
+                  "description": "Filter predictions by specific agent"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameId",
+                  "description": "(Required) Game ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a538d645-14cd-4ba7-888e-c9c7d2b6185e",
+              "name": "Predictions retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"predictions\": [\n      {\n        \"id\": \"1ccab909-b701-7539-3b7e-4a28dbb17373\",\n        \"agentId\": \"e7577611-ccd6-6197-b7e2-1d4852b790f7\",\n        \"predictedWinner\": \"MIN\",\n        \"confidence\": 0.85,\n        \"createdAt\": \"1956-04-28T00:05:39.848Z\"\n      },\n      {\n        \"id\": \"9bc1325c-da38-6ba4-84d8-a799342dd3e0\",\n        \"agentId\": \"f1f64422-66fc-196b-24f1-8bb89c4d87f9\",\n        \"predictedWinner\": \"MIN\",\n        \"confidence\": 0.85,\n        \"createdAt\": \"1960-03-06T00:57:04.754Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27512021-64b4-4f33-9a34-6cd678c121ab",
+              "name": "Game not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "games",
+                    ":gameId",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameId",
+                      "description": "(Required) Game ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc961a96-ae9f-4880-8857-abe8049b4bb5",
+          "name": "Get leaderboard for a competition",
+          "request": {
+            "name": "Get leaderboard for a competition",
+            "description": {
+              "content": "Retrieve the leaderboard showing agent rankings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nfl",
+                "competitions",
+                ":competitionId",
+                "leaderboard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gameId",
+                  "value": "<string>",
+                  "description": "Get leaderboard for specific game"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "competitionId",
+                  "description": "(Required) Competition ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6889971-ff16-4821-9c78-57898baf2362",
+              "name": "Leaderboard retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "leaderboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gameId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"leaderboard\": [\n      {\n        \"agentId\": \"e706dce5-c0e3-fe1c-5574-d8915df3a64e\",\n        \"rank\": 1,\n        \"averageBrierScore\": 0.85,\n        \"gamesScored\": 5\n      },\n      {\n        \"agentId\": \"40b65c89-22cc-f47d-1cdf-16777d27d456\",\n        \"rank\": 1,\n        \"averageBrierScore\": 0.85,\n        \"gamesScored\": 5\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73ee9c3e-8276-4e0a-b26c-5863abda7e9d",
+              "name": "Competition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nfl",
+                    "competitions",
+                    ":competitionId",
+                    "leaderboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gameId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "competitionId",
+                      "description": "(Required) Competition ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.competitions.recall.network",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "157f2b7d-0e29-4a83-91c3-dcedfdc59695",
+    "name": "Trading Simulator Admin NFL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for the Trading Simulator - a platform for simulated cryptocurrency trading competitions\n\n## Authentication Guide\n\nThis API uses Bearer token authentication. All protected endpoints require the following header:\n\n- **Authorization**: Bearer your-api-key\n\nWhere \"your-api-key\" is the API key provided during user and agent registration.\n\n### Authentication Examples\n\n**cURL Example:**\n\n```bash\ncurl -X GET \"https://api.example.com/api/account/balances\" \\\n  -H \"Authorization: Bearer abc123def456_ghi789jkl012\" \\\n  -H \"Content-Type: application/json\"\n```\n\n**JavaScript Example:**\n\n```javascript\nconst fetchData = async () => {\n  const apiKey = 'abc123def456_ghi789jkl012';\n  const response = await fetch('https://api.example.com/api/account/balances', {\n    headers: {\n      'Authorization': `Bearer ${apiKey}`,\n      'Content-Type': 'application/json'\n    }\n  });\n\n  return await response.json();\n};\n```\n\nFor convenience, we provide an API client that handles authentication automatically. See `docs/examples/api-client.ts`.\n      \n\nContact Support:\n Name: API Support\n Email: info@recall.foundation",
+      "type": "text/plain"
+    }
+  }
+}

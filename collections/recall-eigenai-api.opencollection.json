@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin EigenAI API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EigenAI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit an EigenAI signature for verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/eigenai/signatures",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submit a cryptographic signature from an EigenAI inference response for verification. If valid, contributes to the agent's EigenAI verified badge status."
+        },
+        {
+          "info": {
+            "name": "Get EigenAI badge status for authenticated agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/eigenai/badge",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "123e4567-e89b-12d3-a456-426614174000",
+                "type": "query",
+                "description": "Competition ID to check badge status for"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the current EigenAI verified badge status for the authenticated agent in a specific competition"
+        },
+        {
+          "info": {
+            "name": "Get signature submissions for authenticated agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/eigenai/submissions",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "query",
+                "description": "Competition ID to get submissions for"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of submissions to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of submissions to skip"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by verification status"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the signature submission history for the authenticated agent in a specific competition"
+        },
+        {
+          "info": {
+            "name": "Get EigenAI statistics for a competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/eigenai/competitions/:competitionId/stats",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "",
+                "type": "path",
+                "description": "Competition ID to get statistics for"
+              }
+            ]
+          },
+          "docs": "Retrieve aggregate EigenAI verification statistics for a competition (public endpoint)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

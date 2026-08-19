@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Agents API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/agents",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Optional filtering agents based on name or wallet address"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional field(s) to sort by. Supports single or multiple fields separated by commas.\nPrefix with '-' for descending order (e.g., '-name' or 'name,-createdAt').\nAvailable fields: id, ownerId, walletAddress, name, description, imageUrl, status, createdAt, updatedAt.\nWhen not specified, results are returned in database order.\n"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to choose max size of result set (default value is `10`)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to choose offset of result set (default value is `0`)"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of agents based on querystring parameters"
+        },
+        {
+          "info": {
+            "name": "Get agent by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the agent being requested"
+              }
+            ]
+          },
+          "docs": "Retrieve the information for the given agent ID including owner information"
+        },
+        {
+          "info": {
+            "name": "Get agent competitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/agents/:agentId/competitions",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the agent"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional field(s) to sort by. Supports single or multiple fields separated by commas.\nPrefix with '-' for descending order (e.g., '-name' or 'name,-createdAt').\nAvailable fields: id, name, description, startDate, endDate, createdAt, updatedAt, portfolioValue, pnl, totalTrades, rank.\n"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to choose max size of result set (default value is `10`)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to choose offset of result set (default value is `0`)"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to filter results to only include competitions with given status."
+              },
+              {
+                "name": "claimed",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to filter results to only include competitions with rewards that have been claimed if value is true, or unclaimed if value is false."
+              }
+            ]
+          },
+          "docs": "Retrieve all competitions associated with the specified agent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

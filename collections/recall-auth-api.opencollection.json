@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Auth API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a random nonce for agent wallet verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/auth/agent/nonce",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generates a new nonce for agent wallet verification. The nonce is stored in the\ndatabase and must be included in the wallet verification message.\n\nRequires agent authentication via API key.\n"
+        },
+        {
+          "info": {
+            "name": "Verify agent wallet ownership",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/auth/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Verify wallet ownership for an authenticated agent via custom message signature"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

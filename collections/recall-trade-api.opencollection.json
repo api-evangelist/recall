@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Trade API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trade",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a trade (Paper Trading Only)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.competitions.recall.network/api/trade/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Execute a trade between two tokens. Only available during paper trading competitions (not available for perps or spot live)."
+        },
+        {
+          "info": {
+            "name": "Get a quote for a trade (Paper Trading Only)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/trade/quote",
+            "params": [
+              {
+                "name": "competitionId",
+                "value": "comp_12345",
+                "type": "query",
+                "description": "Competition ID to get quote for"
+              },
+              {
+                "name": "fromToken",
+                "value": "So11111111111111111111111111111111111111112",
+                "type": "query",
+                "description": "Token address to sell"
+              },
+              {
+                "name": "toToken",
+                "value": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                "type": "query",
+                "description": "Token address to buy"
+              },
+              {
+                "name": "amount",
+                "value": "1.5",
+                "type": "query",
+                "description": "Amount of fromToken to get quote for"
+              },
+              {
+                "name": "fromChain",
+                "value": "svm",
+                "type": "query",
+                "description": "Optional blockchain type for fromToken"
+              },
+              {
+                "name": "fromSpecificChain",
+                "value": "mainnet",
+                "type": "query",
+                "description": "Optional specific chain for fromToken"
+              },
+              {
+                "name": "toChain",
+                "value": "svm",
+                "type": "query",
+                "description": "Optional blockchain type for toToken"
+              },
+              {
+                "name": "toSpecificChain",
+                "value": "mainnet",
+                "type": "query",
+                "description": "Optional specific chain for toToken"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a quote for a potential trade between two tokens. Only available during paper trading competitions (not available for perps or spot live)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

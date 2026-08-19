@@ -228,3 +228,9 @@ tools:
   path: /api/trade/quote
   tag: Trade
   summary: Get a quote for a trade (Paper Trading Only)
+deployment:
+  mode: none
+  verified: derived
+  tools: 43
+  checked: '2026-08-12'
+  source: catalog MCP census

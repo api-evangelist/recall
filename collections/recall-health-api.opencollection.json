@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Health API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Basic health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/health"
+          },
+          "docs": "Check if the API is running"
+        },
+        {
+          "info": {
+            "name": "Detailed health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/health/detailed"
+          },
+          "docs": "Check if the API and all its services are running properly"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

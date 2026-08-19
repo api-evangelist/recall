@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trading Simulator Admin Leaderboard API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Leaderboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.competitions.recall.network/api/leaderboard",
+            "params": [
+              {
+                "name": "arenaId",
+                "value": "",
+                "type": "query",
+                "description": "Optional arena ID to get arena-specific leaderboard.\nExamples: 'hyperliquid-perps', 'open-paper-trading'\n"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Competition type (used when arenaId not provided).\n- trading: Paper trading\n- perpetual_futures: Perpetual futures\n- spot_live_trading: Spot live trading (on-chain)\n- sports_prediction: Sports prediction\ndefault: trading\n"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get global leaderboard by type or arena-specific leaderboard if arenaId provided.\nWhen arenaId is provided, returns rankings specific to that arena.\nWhen arenaId is omitted, returns global rankings for the specified type.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
