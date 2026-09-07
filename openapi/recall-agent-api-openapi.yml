@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Trading Simulator Admin Agent API
   version: 1.0.0
@@ -65,13 +65,15 @@ paths:
                         type: string
                         example: AI agent focusing on DeFi yield farming
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         example: https://example.com/bot-avatar.jpg
-                        nullable: true
                       email:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         example: tradingbot@example.com
-                        nullable: true
                       status:
                         type: string
                         enum:
@@ -80,12 +82,13 @@ paths:
                         - suspended
                         - deleted
                       metadata:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: Optional metadata for the agent
                         example:
                           strategy: yield-farming
                           risk: medium
-                        nullable: true
                       createdAt:
                         type: string
                         format: date-time
@@ -166,19 +169,23 @@ paths:
                       handle:
                         type: string
                       description:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       imageUrl:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       email:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       status:
                         type: string
                       metadata:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                       createdAt:
                         type: string
                         format: date-time
@@ -344,9 +351,10 @@ paths:
                           type: boolean
                           description: Whether the trade was successfully completed
                         error:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: Error message if the trade failed
-                          nullable: true
                         reason:
                           type: string
                           description: Reason for the trade
@@ -363,15 +371,17 @@ paths:
                           description: Blockchain type of the destination token
                           example: svm
                         fromSpecificChain:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: Specific chain for the source token
                           example: polygon
-                          nullable: true
                         toSpecificChain:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: Specific chain for the destination token
                           example: svm
-                          nullable: true
         '400':
           description: Bad Request - Endpoint not available for perpetual futures competitions
           content:
@@ -464,16 +474,19 @@ paths:
                           type: string
                           format: uuid
                         positionId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           description: Provider-specific position ID
                         marketId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           description: Market identifier
                         marketSymbol:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           example: BTC
                         asset:
                           type: string
@@ -484,8 +497,9 @@ paths:
                           description: Whether position is long (true) or short (false)
                           example: true
                         leverage:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Position leverage (null for positions recovered from fills)
                           example: 10
                         size:
@@ -493,13 +507,15 @@ paths:
                           description: Position size
                           example: 0.5
                         collateral:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Collateral amount (null for positions recovered from fills)
                           example: 2250
                         averagePrice:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Entry price (null for positions recovered from fills)
                           example: 45000
                         markPrice:
@@ -507,8 +523,9 @@ paths:
                           description: Current mark price
                           example: 46000
                         liquidationPrice:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Liquidation price
                           example: 40000
                         unrealizedPnl:
@@ -516,8 +533,9 @@ paths:
                           description: Unrealized PnL
                           example: 500
                         pnlPercentage:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: PnL as percentage (null for positions recovered from fills)
                           example: 0.05
                         realizedPnl:
@@ -533,9 +551,10 @@ paths:
                           format: date-time
                           description: Position open timestamp
                         closedAt:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                           description: Position close timestamp (null if open)
                         timestamp:
                           type: string

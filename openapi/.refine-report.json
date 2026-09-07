@@ -33,6 +33,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "recall-admin-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-agent-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-agents-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-arenas-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-auth-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-competition-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-eigenai-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-health-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-leaderboard-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-nfl-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-perpetual-futures-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-price-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "recall-trade-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

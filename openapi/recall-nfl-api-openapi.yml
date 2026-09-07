@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Trading Simulator Admin NFL API
   version: 1.0.0
@@ -146,13 +146,15 @@ paths:
                               type: integer
                               example: 1
                             spread:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               example: 1.5
                             endTime:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               format: date-time
-                              nullable: true
                             homeTeam:
                               type: string
                               example: CHI
@@ -160,21 +162,25 @@ paths:
                               type: string
                               example: MIN
                             overUnder:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               example: 43.5
                             homeTeamMoneyLine:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             awayTeamMoneyLine:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             startTime:
                               type: string
                               format: date-time
                             venue:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               example: Soldier Field
                             status:
                               type: string
@@ -183,8 +189,9 @@ paths:
                               - in_progress
                               - final
                             winner:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               example: MIN
         '404':
           description: Competition not found
@@ -246,28 +253,34 @@ paths:
                             type: string
                             format: date-time
                           endTime:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           homeTeam:
                             type: string
                           awayTeam:
                             type: string
                           spread:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                           overUnder:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                           homeTeamMoneyLine:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           awayTeamMoneyLine:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           venue:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           status:
                             type: string
                             enum:
@@ -275,11 +288,13 @@ paths:
                             - in_progress
                             - final
                           winner:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                       latestPrediction:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                         properties:
                           predictedWinner:
                             type: string
@@ -352,32 +367,41 @@ paths:
                         description: Latest scoreboard snapshot for the game
                         properties:
                           homeScore:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           awayScore:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           quarterName:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           timeRemainingMinutes:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           timeRemainingSeconds:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           down:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           distance:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           yardLine:
-                            type: integer
-                            nullable: true
+                            type:
+                            - integer
+                            - 'null'
                           yardLineTerritory:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                       plays:
                         type: array
                         items:
@@ -391,45 +415,57 @@ paths:
                             quarterName:
                               type: string
                             timeRemainingMinutes:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             timeRemainingSeconds:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             down:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             distance:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             yardLine:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             yardLineTerritory:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             yardsToEndZone:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             team:
                               type: string
                             opponent:
                               type: string
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             playType:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             homeScore:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                             awayScore:
-                              type: integer
-                              nullable: true
+                              type:
+                              - integer
+                              - 'null'
                       play:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                         description: Present when requesting only the latest play
                       pagination:
                         type: object
@@ -704,11 +740,13 @@ paths:
                               timeWeightedBrierScore:
                                 type: number
                               finalPrediction:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               finalConfidence:
-                                type: number
-                                nullable: true
+                                type:
+                                - number
+                                - 'null'
                               predictionCount:
                                 type: integer
                         gameId:

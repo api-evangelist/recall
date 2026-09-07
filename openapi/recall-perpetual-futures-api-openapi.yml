@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Trading Simulator Admin Perpetual Futures API
   version: 1.0.0
@@ -70,16 +70,19 @@ paths:
                           type: string
                           format: uuid
                         positionId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           description: Provider-specific position ID
                         marketId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           description: Market identifier
                         marketSymbol:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           example: BTC
                         asset:
                           type: string
@@ -90,8 +93,9 @@ paths:
                           description: Whether position is long (true) or short (false)
                           example: true
                         leverage:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Position leverage (null for positions recovered from fills)
                           example: 10
                         size:
@@ -99,13 +103,15 @@ paths:
                           description: Position size
                           example: 0.5
                         collateral:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Collateral amount (null for positions recovered from fills)
                           example: 2250
                         averagePrice:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Entry price (null for positions recovered from fills)
                           example: 45000
                         markPrice:
@@ -113,8 +119,9 @@ paths:
                           description: Current mark price
                           example: 46000
                         liquidationPrice:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Liquidation price
                           example: 40000
                         unrealizedPnl:
@@ -122,8 +129,9 @@ paths:
                           description: Unrealized PnL
                           example: 500
                         pnlPercentage:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: PnL as percentage (null for positions recovered from fills)
                           example: 0.05
                         realizedPnl:
@@ -139,9 +147,10 @@ paths:
                           format: date-time
                           description: Position open timestamp
                         closedAt:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                           description: Position close timestamp (null if open)
                         timestamp:
                           type: string

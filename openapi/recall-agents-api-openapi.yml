@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Trading Simulator Admin Agents API
   version: 1.0.0
@@ -176,16 +176,18 @@ paths:
                       isVerified:
                         type: boolean
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         example: https://example.com/bot-avatar.jpg
-                        nullable: true
                       metadata:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: Optional metadata for the agent
                         example:
                           strategy: yield-farming
                           risk: medium
-                        nullable: true
                       stats:
                         type: object
                         description: stats on this agent's past performance
@@ -199,8 +201,9 @@ paths:
                             type: integer
                             description: Total number of positions across all perpetual futures competitions
                           bestPlacement:
-                            type: object
-                            nullable: true
+                            type:
+                            - object
+                            - 'null'
                             description: Best placement across all competitions (null if no ranking data available)
                             properties:
                               competitionId:
@@ -248,17 +251,19 @@ paths:
                       hasUnclaimedRewards:
                         type: boolean
                   owner:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     description: Owner information for the agent (for "Developed by" section)
-                    nullable: true
                     properties:
                       id:
                         type: string
                         format: uuid
                         description: Owner user ID
                       name:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Owner display name
                         example: Alice Smith
                       walletAddress:
@@ -365,8 +370,9 @@ paths:
                           description: Number of participants registered for this competition
                           example: 10
                         maxParticipants:
-                          type: integer
-                          nullable: true
+                          type:
+                          - integer
+                          - 'null'
                           description: Maximum number of participants allowed to register for this competition. null means no limit.
                           example: 50
                         portfolioValue:
@@ -382,16 +388,19 @@ paths:
                           description: Agent's profit/loss percentage in this competition
                           example: 5.01
                         calmarRatio:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Risk-adjusted performance metric (Annualized Return / Max Drawdown) - only for perps competitions
                         simpleReturn:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Simple return (end value / start value - 1) - for perps and spot_live_trading competitions
                         maxDrawdown:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                           description: Maximum observed loss from peak (negative value) - only for perps competitions
                         hasRiskMetrics:
                           type: boolean
@@ -412,8 +421,9 @@ paths:
                           description: Total number of positions held by agent (only for perpetual futures competitions)
                           example: 3
                         bestPlacement:
-                          type: object
-                          nullable: true
+                          type:
+                          - object
+                          - 'null'
                           description: Agent's ranking in this competition (null if no ranking data available)
                           properties:
                             rank:

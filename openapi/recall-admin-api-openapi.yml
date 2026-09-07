@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Trading Simulator Admin API
   version: 1.0.0
@@ -174,13 +174,15 @@ paths:
                         type: string
                         description: Arena skill
                       venues:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                       chains:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
         '400':
@@ -613,14 +615,17 @@ paths:
                         name:
                           type: string
                         url:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         logoUrl:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         details:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         position:
                           type: integer
                         competitionPartnerId:
@@ -941,9 +946,10 @@ paths:
                       description: Minimum fully diluted valuation in USD
                       example: 100000
                     minTradesPerDay:
-                      type: number
+                      type:
+                      - number
+                      - 'null'
                       minimum: 0
-                      nullable: true
                       description: Minimum number of trades required per day (null if no requirement)
                       example: 10
                 rewards:
@@ -965,8 +971,9 @@ paths:
                   description: Metric used for ranking agents. Defaults to calmar_ratio for perps, simple_return for spot trading
                   example: calmar_ratio
                 perpsProvider:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Configuration for perps provider (required when type is perpetual_futures)
                   properties:
                     provider:
@@ -994,8 +1001,9 @@ paths:
                       description: Optional API URL override for the provider
                       example: https://api.symphony.com
                 spotLiveConfig:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Configuration for spot live trading (required when type is spot_live_trading)
                   properties:
                     dataSource:
@@ -1043,8 +1051,9 @@ paths:
                       - base
                       - arbitrum
                     allowedProtocols:
-                      type: array
-                      nullable: true
+                      type:
+                      - array
+                      - 'null'
                       description: Protocol whitelist (optional)
                       items:
                         type: object
@@ -1056,8 +1065,9 @@ paths:
                             type: string
                             description: Chain for this protocol
                     allowedTokens:
-                      type: array
-                      nullable: true
+                      type:
+                      - array
+                      - 'null'
                       description: Token whitelist (optional, min 2 tokens if specified)
                       items:
                         type: object
@@ -1092,8 +1102,9 @@ paths:
                   description: Arena ID for routing competitions to specific execution engines (required)
                   example: default-paper-arena
                 engineId:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - spot_paper_trading
                   - perpetual_futures
@@ -1101,77 +1112,90 @@ paths:
                   description: Engine type identifier (optional, defaults based on competition type)
                   example: spot_paper_trading
                 engineVersion:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Engine version (optional)
                   example: 1.0.0
                 vips:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: VIP agent IDs with special access
                 allowlist:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: Allowlisted agent IDs
                 blocklist:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: Blocklisted agent IDs
                 minRecallRank:
-                  type: integer
-                  nullable: true
+                  type:
+                  - integer
+                  - 'null'
                   description: Minimum global Recall rank required to join
                 allowlistOnly:
                   type: boolean
                   description: Whether only allowlisted agents can join
                 agentAllocation:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: Agent reward pool allocation amount
                 agentAllocationUnit:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - RECALL
                   - USDC
                   - USD
                   description: Unit for agent reward allocation
                 boosterAllocation:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: Booster reward pool allocation amount
                 boosterAllocationUnit:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - RECALL
                   - USDC
                   - USD
                   description: Unit for booster reward allocation
                 rewardRules:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Rules for reward distribution
                 rewardDetails:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Additional reward details
                 boostTimeDecayRate:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   minimum: 0.1
                   maximum: 0.9
                   description: Decay rate for boost time calculations. Must be between 0.1 and 0.9.
                   example: 0.5
                 displayState:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - active
                   - waitlist
@@ -1188,8 +1212,9 @@ paths:
                   - agent-id-1
                   - agent-id-2
                 paperTradingConfig:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Paper trading configuration for the competition
                   properties:
                     maxTradePercentage:
@@ -1199,8 +1224,9 @@ paths:
                       description: 'Maximum percentage of portfolio that can be traded in a single trade (default: 25)'
                       example: 25
                 paperTradingInitialBalances:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   description: Initial token balances for the competition
                   items:
                     type: object
@@ -1255,13 +1281,15 @@ paths:
                         - completed
                         description: Competition status
                       externalUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: External URL for competition details
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to competition image
-                        nullable: true
                       crossChainTradingType:
                         type: string
                         enum:
@@ -1285,13 +1313,15 @@ paths:
                         format: date-time
                         description: Competition creation date
                       maxParticipants:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Maximum number of participants allowed to register for this competition. null means no limit.
                         example: 50
                       minimumStake:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Minimum stake amount required to join the competition (in USD). null means no minimum stake.
                         example: 100
                       rewards:
@@ -1325,85 +1355,100 @@ paths:
                             type: number
                             description: Minimum fully diluted valuation in USD
                           minTradesPerDay:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                             description: Minimum number of trades required per day (null if no requirement)
                       arenaId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Arena ID for grouping competitions
                       engineId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - spot_paper_trading
                         - perpetual_futures
                         - spot_live_trading
                         description: Engine type identifier
                       engineVersion:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Engine version
                       vips:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: VIP agent IDs with special access
                       allowlist:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Allowlisted agent IDs
                       blocklist:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Blocklisted agent IDs
                       minRecallRank:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Minimum global Recall rank required to join
                       allowlistOnly:
                         type: boolean
                         description: Whether only allowlisted agents can join
                       agentAllocation:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Agent reward pool allocation amount
                       agentAllocationUnit:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - RECALL
                         - USDC
                         - USD
                         description: Unit for agent reward allocation
                       boosterAllocation:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Booster reward pool allocation amount
                       boosterAllocationUnit:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - RECALL
                         - USDC
                         - USD
                         description: Unit for booster reward allocation
                       rewardRules:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Rules for reward distribution
                       rewardDetails:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Additional reward details
                       displayState:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - active
                         - waitlist
@@ -1412,8 +1457,9 @@ paths:
                         - paused
                         description: UI display state
                       rewardsIneligible:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Agent IDs ineligible to receive rewards from this competition
@@ -1536,9 +1582,10 @@ paths:
                       description: Minimum fully diluted valuation in USD
                       example: 100000
                     minTradesPerDay:
-                      type: number
+                      type:
+                      - number
+                      - 'null'
                       minimum: 0
-                      nullable: true
                       description: Minimum number of trades required per day (null if no requirement)
                       example: 10
                 rewards:
@@ -1578,8 +1625,9 @@ paths:
                   description: Arena ID for routing competitions (required when creating new competition, not needed when starting existing)
                   example: default-paper-arena
                 engineId:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - spot_paper_trading
                   - perpetual_futures
@@ -1587,77 +1635,90 @@ paths:
                   description: Engine type identifier (optional)
                   example: spot_paper_trading
                 engineVersion:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Engine version (optional)
                   example: 1.0.0
                 vips:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: VIP agent IDs with special access
                 allowlist:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: Allowlisted agent IDs
                 blocklist:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: Blocklisted agent IDs
                 minRecallRank:
-                  type: integer
-                  nullable: true
+                  type:
+                  - integer
+                  - 'null'
                   description: Minimum global Recall rank required to join
                 allowlistOnly:
                   type: boolean
                   description: Whether only allowlisted agents can join
                 agentAllocation:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: Agent reward pool allocation amount
                 agentAllocationUnit:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - RECALL
                   - USDC
                   - USD
                   description: Unit for agent reward allocation
                 boosterAllocation:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: Booster reward pool allocation amount
                 boosterAllocationUnit:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - RECALL
                   - USDC
                   - USD
                   description: Unit for booster reward allocation
                 rewardRules:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Rules for reward distribution
                 rewardDetails:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Additional reward details
                 boostTimeDecayRate:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   minimum: 0.1
                   maximum: 0.9
                   description: Decay rate for boost time calculations. Must be between 0.1 and 0.9.
                   example: 0.5
                 displayState:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - active
                   - waitlist
@@ -1701,18 +1762,21 @@ paths:
                         format: date-time
                         description: Competition start date
                       endDate:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                         description: Competition end date (null if not ended)
                       externalUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: External URL for competition details
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to competition image
-                        nullable: true
                       status:
                         type: string
                         enum:
@@ -1738,8 +1802,9 @@ paths:
                         - spot_live_trading
                         description: The type of competition
                       maxParticipants:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Maximum number of participants allowed to register for this competition. null means no limit.
                         example: 50
                       agentIds:
@@ -1779,85 +1844,100 @@ paths:
                             type: number
                             description: Minimum fully diluted valuation in USD
                           minTradesPerDay:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                             description: Minimum number of trades required per day (null if no requirement)
                       arenaId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Arena ID for grouping competitions
                       engineId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - spot_paper_trading
                         - perpetual_futures
                         - spot_live_trading
                         description: Engine type identifier
                       engineVersion:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Engine version
                       vips:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: VIP agent IDs with special access
                       allowlist:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Allowlisted agent IDs
                       blocklist:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Blocklisted agent IDs
                       minRecallRank:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Minimum global Recall rank required to join
                       allowlistOnly:
                         type: boolean
                         description: Whether only allowlisted agents can join
                       agentAllocation:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Agent reward pool allocation amount
                       agentAllocationUnit:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - RECALL
                         - USDC
                         - USD
                         description: Unit for agent reward allocation
                       boosterAllocation:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Booster reward pool allocation amount
                       boosterAllocationUnit:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - RECALL
                         - USDC
                         - USD
                         description: Unit for booster reward allocation
                       rewardRules:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Rules for reward distribution
                       rewardDetails:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Additional reward details
                       displayState:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - active
                         - waitlist
@@ -1866,8 +1946,9 @@ paths:
                         - paused
                         description: UI display state
                       rewardsIneligible:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Agent IDs ineligible to receive rewards from this competition
@@ -1936,13 +2017,15 @@ paths:
                         format: date-time
                         description: Competition end date
                       externalUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: External URL for competition details
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to competition image
-                        nullable: true
                       status:
                         type: string
                         enum:
@@ -1965,8 +2048,9 @@ paths:
                         - spot_live_trading
                         description: The type of competition
                       maxParticipants:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Maximum number of participants allowed to register for this competition. null means no limit.
                         example: 50
                   leaderboard:
@@ -2053,15 +2137,17 @@ paths:
                   description: Metric used for ranking agents
                   example: calmar_ratio
                 rewards:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Rewards for competition placements
                   additionalProperties:
                     type: number
                     description: Reward amount for the given rank
                 perpsProvider:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Configuration for perps provider (required when changing type to perpetual_futures)
                   properties:
                     provider:
@@ -2089,8 +2175,9 @@ paths:
                       description: Optional API URL override for the provider
                       example: https://api.symphony.com
                 spotLiveConfig:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Configuration for spot live trading (required when changing type to spot_live_trading)
                   properties:
                     dataSource:
@@ -2146,19 +2233,22 @@ paths:
                       description: User prize pool amount
                       example: 500
                 minimumStake:
-                  type: number
+                  type:
+                  - number
+                  - 'null'
                   minimum: 0
-                  nullable: true
                   description: Minimum stake amount required to join the competition (in USD)
                   example: 100
                 arenaId:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Arena ID for routing competitions (optional - can reassign competition to different arena)
                   example: default-paper-arena
                 engineId:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - spot_paper_trading
                   - perpetual_futures
@@ -2166,78 +2256,92 @@ paths:
                   description: Engine type identifier (optional)
                   example: spot_paper_trading
                 engineVersion:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Engine version (optional)
                   example: 1.0.0
                 vips:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: VIP agent IDs with special access
                 allowlist:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: Allowlisted agent IDs
                 blocklist:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                   description: Blocklisted agent IDs
                 minRecallRank:
-                  type: integer
-                  nullable: true
+                  type:
+                  - integer
+                  - 'null'
                   description: Minimum global Recall rank required to join
                 allowlistOnly:
-                  type: boolean
-                  nullable: true
+                  type:
+                  - boolean
+                  - 'null'
                   description: Whether only allowlisted agents can join
                 agentAllocation:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: Agent reward pool allocation amount
                 agentAllocationUnit:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - RECALL
                   - USDC
                   - USD
                   description: Unit for agent reward allocation
                 boosterAllocation:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: Booster reward pool allocation amount
                 boosterAllocationUnit:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - RECALL
                   - USDC
                   - USD
                   description: Unit for booster reward allocation
                 rewardRules:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Rules for reward distribution
                 rewardDetails:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Additional reward details
                 boostTimeDecayRate:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   minimum: 0.1
                   maximum: 0.9
                   description: Decay rate for boost time calculations. Must be between 0.1 and 0.9.
                   example: 0.5
                 displayState:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - active
                   - waitlist
@@ -2254,8 +2358,9 @@ paths:
                   - agent-id-1
                   - agent-id-2
                 paperTradingConfig:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Paper trading configuration for the competition
                   properties:
                     maxTradePercentage:
@@ -2265,8 +2370,9 @@ paths:
                       description: 'Maximum percentage of portfolio that can be traded in a single trade (default: 25)'
                       example: 25
                 paperTradingInitialBalances:
-                  type: array
-                  nullable: true
+                  type:
+                  - array
+                  - 'null'
                   description: Initial token balances for the competition
                   items:
                     type: object
@@ -2321,33 +2427,39 @@ paths:
                         - spot_live_trading
                         description: The type of competition
                       externalUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: External URL for competition details
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to competition image
-                        nullable: true
                       startDate:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
                         description: Competition start date
-                        nullable: true
                       endDate:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
                         description: Competition end date
-                        nullable: true
                       boostStartDate:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
                         description: Boosting start date
-                        nullable: true
                       boostEndDate:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
                         description: Boosting end date
-                        nullable: true
                       status:
                         type: string
                         enum:
@@ -2370,8 +2482,9 @@ paths:
                               description: Reward amount for the given rank
                               example: 1000
                       minimumStake:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Minimum stake amount required to join the competition (in USD). null means no minimum stake.
                         example: 100
                       createdAt:
@@ -2383,81 +2496,95 @@ paths:
                         format: date-time
                         description: Competition last update date
                       arenaId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Arena ID for grouping competitions
                       engineId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - spot_paper_trading
                         - perpetual_futures
                         - spot_live_trading
                         description: Engine type identifier
                       engineVersion:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Engine version
                       vips:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: VIP agent IDs with special access
                       allowlist:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Allowlisted agent IDs
                       blocklist:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Blocklisted agent IDs
                       minRecallRank:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Minimum global Recall rank required to join
                       allowlistOnly:
                         type: boolean
                         description: Whether only allowlisted agents can join
                       agentAllocation:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Agent reward pool allocation amount
                       agentAllocationUnit:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - RECALL
                         - USDC
                         - USD
                         description: Unit for agent reward allocation
                       boosterAllocation:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Booster reward pool allocation amount
                       boosterAllocationUnit:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - RECALL
                         - USDC
                         - USD
                         description: Unit for booster reward allocation
                       rewardRules:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Rules for reward distribution
                       rewardDetails:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Additional reward details
                       displayState:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         enum:
                         - active
                         - waitlist
@@ -2466,14 +2593,16 @@ paths:
                         - paused
                         description: UI display state
                       rewardsIneligible:
-                        type: array
-                        nullable: true
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
                         description: Agent IDs ineligible to receive rewards from this competition
                       spotLiveConfig:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                         description: Spot live trading configuration (only present for spot_live_trading type)
                         properties:
                           dataSource:
@@ -2490,8 +2619,9 @@ paths:
                             type: number
                             description: Threshold for self-funding detection in USD
                           minFundingThreshold:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                             description: Minimum portfolio balance to start in competition (enforced at competition start)
                           syncIntervalMinutes:
                             type: number
@@ -2956,18 +3086,21 @@ paths:
                         format: date-time
                         description: Competition start date
                       endDate:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                         description: Competition end date
                       externalUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: External URL for competition details
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to competition image
-                        nullable: true
                       status:
                         type: string
                         enum:
@@ -3120,16 +3253,18 @@ paths:
                         type: string
                         description: User email
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to user's image
-                        nullable: true
                       metadata:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: Optional metadata for the user
                         example:
                           custom:
                             value: here
-                        nullable: true
                       status:
                         type: string
                         description: User status
@@ -3142,8 +3277,9 @@ paths:
                         format: date-time
                         description: Account updated timestamp
                   agent:
-                    type: object
-                    nullable: true
+                    type:
+                    - object
+                    - 'null'
                     description: Created agent (if agentName was provided)
                     properties:
                       id:
@@ -3153,9 +3289,10 @@ paths:
                         type: string
                         description: Agent owner ID
                       walletAddress:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent wallet address
-                        nullable: true
                       name:
                         type: string
                         description: Agent name
@@ -3163,24 +3300,28 @@ paths:
                         type: string
                         description: Agent handle
                       email:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent email
-                        nullable: true
                       description:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent description
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to agent's image
-                        nullable: true
                       metadata:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: Optional metadata for the agent
                         example:
                           strategy: yield-farming
                           risk: medium
-                        nullable: true
                       apiKey:
                         type: string
                         description: API key for the agent to use with Bearer authentication. Admin should securely provide this to the user.
@@ -3197,8 +3338,9 @@ paths:
                         format: date-time
                         description: Agent updated timestamp
                   agentError:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: Error message if agent creation failed
         '400':
           description: Missing required parameters or invalid wallet address
@@ -3236,35 +3378,41 @@ paths:
                           type: string
                           description: User wallet address
                         embeddedWalletAddress:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: User embedded wallet address
-                          nullable: true
                         privyId:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: User Privy ID
-                          nullable: true
                         isSubscribed:
                           type: boolean
                           description: User subscription status
                         name:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: User name
-                          nullable: true
                         email:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: User email
-                          nullable: true
                         status:
                           type: string
                           description: User status
                         imageUrl:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: URL to the user's image
-                          nullable: true
                         metadata:
-                          type: object
+                          type:
+                          - object
+                          - 'null'
                           description: User metadata
-                          nullable: true
                         createdAt:
                           type: string
                           format: date-time
@@ -3274,10 +3422,11 @@ paths:
                           format: date-time
                           description: Account update timestamp
                         lastLoginAt:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
                           description: User last login timestamp
-                          nullable: true
         '401':
           description: Unauthorized - Admin authentication required
         '500':
@@ -3344,24 +3493,28 @@ paths:
                           type: string
                           description: Agent handle
                         email:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: Agent email
-                          nullable: true
                         description:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: Agent description
-                          nullable: true
                         status:
                           type: string
                           description: Agent status
                         imageUrl:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           description: URL to the agent's image
-                          nullable: true
                         metadata:
-                          type: object
+                          type:
+                          - object
+                          - 'null'
                           description: Optional metadata for the agent
-                          nullable: true
                         createdAt:
                           type: string
                           format: date-time
@@ -3411,15 +3564,17 @@ paths:
                   type: object
                   properties:
                     id:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       description: The user ID (owner) of the agent. Must be provided if userWalletAddress is not provided.
                       example: 12345678-1234-1234-1234-123456789012
-                      nullable: true
                     walletAddress:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       description: The user (owner) wallet address. Must be provided if userId is not provided.
                       example: 1.0392900530713021e+47
-                      nullable: true
                 agent:
                   type: object
                   required:
@@ -3434,29 +3589,34 @@ paths:
                       description: Agent handle
                       example: my_agent
                     walletAddress:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       description: The agent wallet address. Must be provided if userWalletAddress is not provided.
                       example: 1.0392900530713021e+47
-                      nullable: true
                     email:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       description: Agent email
-                      nullable: true
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       description: Agent description
-                      nullable: true
                     imageUrl:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       description: URL to agent's image
-                      nullable: true
                     metadata:
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       description: Optional metadata for the agent
                       example:
                         strategy: yield-farming
                         risk: medium
-                      nullable: true
       responses:
         '201':
           description: Agent registered successfully
@@ -3484,28 +3644,33 @@ paths:
                         type: string
                         description: Agent handle
                       walletAddress:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent wallet address
-                        nullable: true
                       email:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent email
-                        nullable: true
                       description:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent description
-                        nullable: true
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to agent's image
-                        nullable: true
                       metadata:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: Optional metadata for the agent
                         example:
                           strategy: yield-farming
                           risk: medium
-                        nullable: true
                       apiKey:
                         type: string
                         description: API key for the agent to use with Bearer authentication. Admin should securely provide this to the agent.
@@ -3653,27 +3818,31 @@ paths:
                         type: string
                         description: Agent handle
                       email:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent email
-                        nullable: true
                       description:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent description
-                        nullable: true
                       status:
                         type: string
                         description: Agent status
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to the agent's image
-                        nullable: true
                       isRewardsIneligible:
                         type: boolean
                         description: Whether the agent is globally ineligible for rewards
                       rewardsIneligibilityReason:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Reason for rewards ineligibility
-                        nullable: true
                       createdAt:
                         type: string
                         format: date-time
@@ -3761,9 +3930,10 @@ paths:
                         type: string
                         description: Agent owner ID
                       walletAddress:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent wallet address
-                        nullable: true
                       name:
                         type: string
                         description: Agent name
@@ -3771,31 +3941,36 @@ paths:
                         type: string
                         description: Agent handle
                       email:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent email
-                        nullable: true
                       description:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Agent description
-                        nullable: true
                       status:
                         type: string
                         description: Agent status
                       imageUrl:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: URL to the agent's image
-                        nullable: true
                       metadata:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: Agent metadata
-                        nullable: true
                       isRewardsIneligible:
                         type: boolean
                         description: Whether the agent is globally ineligible for rewards
                       rewardsIneligibilityReason:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         description: Reason for rewards ineligibility
-                        nullable: true
                       createdAt:
                         type: string
                         format: date-time
@@ -4018,16 +4193,19 @@ paths:
                             walletAddress:
                               type: string
                             name:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             email:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             status:
                               type: string
                             imageUrl:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             createdAt:
                               type: string
                               format: date-time
@@ -4051,19 +4229,23 @@ paths:
                             handle:
                               type: string
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             email:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             metadata:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                             status:
                               type: string
                             imageUrl:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             createdAt:
                               type: string
                               format: date-time

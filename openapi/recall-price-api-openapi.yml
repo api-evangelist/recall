@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Trading Simulator Admin Price API
   version: 1.0.0
@@ -79,8 +79,9 @@ paths:
                     type: boolean
                     description: Whether the price was successfully retrieved
                   price:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                     description: Current price of the token in USD
                   token:
                     type: string
@@ -92,8 +93,9 @@ paths:
                     - svm
                     description: Blockchain type of the token
                   specificChain:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: Specific chain for EVM tokens
                   symbol:
                     type: string
